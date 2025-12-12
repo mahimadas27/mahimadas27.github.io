@@ -5,65 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mahima Das – Academic CV</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7fa;
     display: flex;
     height: 100vh;
     overflow: hidden;
   }
+
+  /* --- SIDEBAR --- */
   .sidebar {
     width: 310px;
-    background: linear-gradient(180deg, #ff8fbf, #8ec5fc);
+    background: linear-gradient(185deg, #ff7ab8, #7bb6ff);
     color: white;
-    padding: 30px 25px;
+    padding: 32px 26px;
     overflow-y: auto;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.12);
   }
   .sidebar img {
-    width: 140px;
-    height: 140px;
+    width: 145px;
+    height: 145px;
     border-radius: 50%;
     object-fit: cover;
-    display: block;
-    margin: 0 auto 20px;
-    border: 3px solid white;
+    margin: 0 auto 22px;
+    border: 4px solid rgba(255,255,255,0.9);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.18);
   }
   .sidebar h1 {
-    font-size: 24px;
+    font-size: 26px;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-weight: 700;
   }
   .sidebar p {
     text-align: center;
     font-size: 14px;
-    margin: 0 0 15px;
+    margin: 0 0 16px;
+    opacity: 0.95;
   }
-  .sidebar section { margin-bottom: 25px; }
+  .sidebar section {
+    margin-bottom: 30px;
+  }
   .sidebar h2 {
     font-size: 16px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.55);
     padding-bottom: 4px;
+    letter-spacing: 0.5px;
   }
   .sidebar ul {
-    padding-left: 18px;
+    padding-left: 20px;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.45;
   }
+  .sidebar a {
+    color: #fff8ff;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  /* --- MAIN CONTENT --- */
   .main-content {
     flex-grow: 1;
     overflow-y: auto;
-    padding: 40px 60px;
+    padding: 45px 65px;
+    background: #ffffff;
   }
   .main-content h2 {
-    border-bottom: 2px solid #ff8fbf;
-    padding-bottom: 4px;
-    margin-top: 40px;
+    border-bottom: 3px solid #ff7ab8;
+    padding-bottom: 6px;
+    margin-top: 45px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #333;
   }
-  .entry { margin-bottom: 25px; }
-  .entry h3 { margin: 0 0 5px; }
-  .entry p { margin: 3px 0; }
+  .highlight {
+    background: linear-gradient(90deg, #ffd9ec, #d8e9ff);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .entry {
+    margin-bottom: 30px;
+    padding: 12px 18px;
+    border-left: 4px solid #7bb6ff;
+    background: #f9fbff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .entry h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    color: #222;
+  }
+  .entry p {
+    margin: 4px 0;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.45;
+  }
 </style>
 </head>
 <body>
@@ -74,12 +119,9 @@
   <p>MRes Student | Researcher</p>
 
   <section>
-    <h2>Contact</h2>
-    <p>Email: dasmahima12270993@gmail.com</p>
-    <p>Phone: +44 07900945722</p>
-    <p>Location: BN1 7HF</p>
-    <p><a href="https://www.linkedin.com/in/mahima-das-880876210/" style="color:white;">LinkedIn</a></p>
-    <p><a href="https://orcid.org/0009-0008-5764-1921" style="color:white;">ORCID</a></p>
+    <h2>Social</h2>
+    <p><a href="https://x.com/MahimaPsych" style="color:white; font-weight:600; text-decoration:none;">🐦 Twitter</a></p>
+    <p><a href="https://topmate.io/mahima_das11" style="color:white; font-weight:600; text-decoration:none;">⭐ Topmate</a></p>
   </section>
 
   <section>
@@ -98,8 +140,163 @@
 
 <div class="main-content">
   <h2>Research Interests</h2>
-  <p>Your detailed research interest text will appear here. Add next.</p>
+  <p>My research focuses on the psychological impacts of childhood trauma, particularly its influence on emotional outcomes and negative behavioural and health outcomes. I employ quantitative research methods with a focus on SPSS, AMOS and R for statistical analysis. Prospective areas of inquiry include substance and illicit drug abuse, moral injury, trauma, coercion and violence, with an emphasis on trauma-informed and culturally sensitive applications. My work seeks to inform both psychological theory and clinical practice, with long-term contributions to research, assessment, and intervention development for marginalized and high-risk populations.</p>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <h3>University of Sussex <span style="color:#ff8fbf; font-weight:500;">| September 2026</span></h3>
+    <p>Masters in Research in Psychological Methods</p>
+  </div>
+  <div class="entry">
+    <h3>Bengaluru City University, IIPR <span style="color:#ff8fbf; font-weight:500;">| August 2024</span></h3>
+    <p>Master of Science, Psychology (CGPA 8.98) – 3rd Rank in University</p>
+  </div>
+  <div class="entry">
+    <h3>University of Calcutta, Asutosh College <span style="color:#ff8fbf; font-weight:500;">| August 2022</span></h3>
+    <p>Bachelor of Science (Honours), Psychology (CGPA 7.865)</p>
+  </div>
+
+  <h2>Research Experience</h2>
+  <div class="entry">
+    <h3>University of Sussex <span style="color:#8ec5fc;">| Sept 2025 – Present</span></h3>
+    <ul>
+      <li>Course Representative, Student Union</li>
+      <li>Active Listening Volunteer (Nightline)</li>
+      <li>Events Officer, Psychology Society</li>
+      <li>Working with Dr. Faith Matcham (THRIVE Lab) on digital interventions for alcohol via AI, VR, and wearables.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Mahindra University – Research Assistant (Remote) <span style="color:#8ec5fc;">| Jun–Sep 2025</span></h3>
+    <ul>
+      <li>Worked on Black Swan funded project “Resilience in Structured Hardships.”</li>
+      <li>Wrote a systematic review on effects of hardship on gratitude.</li>
+      <li>Recruited & managed 28 participants over 30 days; collected interviews and transcriptions.</li>
+      <li>Cleaned and analysed quantitative data using SPSS; contributed to academic paper writing.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>CHI for Trauma & Well-being – Research Assistant <span style="color:#8ec5fc;">| Jun–Aug 2025</span></h3>
+    <ul><li>Worked on the project “Illness Burden of Trauma.”</li></ul>
+  </div>
+
+  <div class="entry">
+    <h3>Trauma Group, Stanford–Hebrew University <span style="color:#8ec5fc;">| 2024–Present</span></h3>
+    <ul>
+      <li>Worked on two projects: sibling sexual abuse dataset (~3000 cases) and Arabic dyads.</li>
+      <li>Conducted data cleaning, sorting, and manuscript writing.</li>
+      <li>Working on scale development and CFA model validation using SPSS AMOS.</li>
+      <li>Presented topics in weekly lab meetings; engaged in grant writing.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Indian Institute of Psychology & Research – Astara Clinic <span style="color:#8ec5fc;">| May–Jul 2024</span></h3>
+    <ul>
+      <li>Contributed to a retrospective prevalence study on child maltreatment.</li>
+      <li>Conducted data collection, sorting and cleaning with ethical sensitivity.</li>
+      <li>Contributed to manuscript development.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>EMOJAR – Research Assistant (Remote) <span style="color:#8ec5fc;">| Jul–Nov 2020</span></h3>
+    <ul><li>Wrote psychology-related blogs and contributed to monthly magazine issues.</li></ul>
+  </div>
+
+  <h2>Professional Experience</h2>
+  <div class="entry">
+    <h3>Caregiver, Aurora Community Care <span style="color:#ff8fbf;">| Nov 2025 – Present</span></h3>
+    <ul>
+      <li>Provide overnight supervision, reassurance, and safety monitoring.</li>
+      <li>Assist with personal care, mobility support, and medication prompts.</li>
+      <li>Conduct welfare checks, respond to emergencies, and document observations.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>University Lecturer & Departmental Administrative Officer, St. Anne’s Degree College <span style="color:#ff8fbf;">| Sep 2024 – Mar 2025</span></h3>
+    <ul>
+      <li>Taught master’s-level courses in Psychometry, Psychotherapy, Theoretical Perspectives, and OB.</li>
+      <li>Conducted SPSS training; supervised scale development projects and dissertations.</li>
+      <li>Implemented trauma-informed, intersectional pedagogy.</li>
+      <li>Organized academic events and managed departmental newsletter.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Remedial Educator, Anugrah Siksha Kendra <span style="color:#ff8fbf;">| Feb 2023 – Aug 2024</span></h3>
+    <ul><li>Delivered remediation for children with learning disabilities using evidence-based methods.</li></ul>
+  </div>
+
+  <div class="entry">
+    <h3>Trainee Counsellor, That Happiness Project <span style="color:#ff8fbf;">| Apr 2024 – Jan 2025</span></h3>
+    <ul>
+      <li>Conducted 40+ supervised sessions using CBT and ACT techniques.</li>
+      <li>Developed skills in case formulation and assessment tool usage.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>AIESEC India – Internship Trainee <span style="color:#ff8fbf;">| Aug 2020 – Jan 2021</span></h3>
+    <ul>
+      <li>Sales executive in Outgoing Global Talent (OGT).</li>
+      <li>Engaged in customer service and event management (e.g., Youth Speak Forum).</li>
+    </ul>
+  </div>
+
+  <h2>Volunteering</h2>
+  <div class="entry">
+    <h3>Open Science Officer – UPA Journal <span style="color:#8ec5fc;">| Nov 2025 – Present</span></h3>
+    <ul>
+      <li>Create open science guides for authors.</li>
+      <li>Conduct workshops promoting transparency & reproducibility.</li>
+      <li>Manage the registered report pipeline.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Active Listening Volunteer – Sussex Nightline <span style="color:#8ec5fc;">| Sep 2025 – Present</span></h3>
+    <ul>
+      <li>Completed 14-hour training.</li>
+      <li>Provide listening support during waking night shifts following Nightline principles.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h3>Clinical Intern – Caring Minds, Kolkata <span style="color:#8ec5fc;">| Aug–Oct 2022</span></h3>
+    <ul>
+      <li>Observed clinical sessions under four psychologists.</li>
+      <li>Administered and scored psychological tests (IQ, MBTI, IPDE, DSMD, CAARS, SCARED, BDI, BSDS).</li>
+    </ul>
+  </div>
+
+  <h2>Presentations</h2>
+  <ul>
+    <li>Das, M. (2025). *Childhood Trauma and Alexithymia*: Psychedelics 2025 Conference, NSHM, Kolkata.</li>
+    <li>Das, M., Unnikrishnan, S., & Sibey, A. (2023). *Media Violence & Anxiety*: National Conference, Kannur.</li>
+    <li>Das, M. (2021). *Gender Security and Pandemic*: IIHSG International Conference.</li>
+  </ul>
+
+  <h2>Workshops & Training</h2>
+  <ul><li>Workshop on Swift Solutions for Technology Addiction-2, SHUT Clinic, NIMHANS (2024)</li></ul>
+
+  <h2>Guest Lectures & Panels</h2>
+  <ul>
+    <li>Guest Lecturer – St. Anne’s Degree College: Motivation & Coping Strategies (2024)</li>
+    <li>Panel Moderator – IIPR: Beyond the Diagnosis (Psychology & Oncology), 2024</li>
+  </ul>
 </div>
 
+  <div class="social-links" style="padding:20px;">
+    <a href="https://x.com/MahimaPsych" target="_blank" style="display:flex;align-items:center;gap:8px;margin-top:10px;text-decoration:none;color:#e94dcf;font-weight:600;">
+      <span style="font-size:20px;">🐦</span> Twitter
+    </a>
+    <a href="https://topmate.io/mahima_das11" target="_blank" style="display:flex;align-items:center;gap:8px;margin-top:6px;text-decoration:none;color:#6aa9ff;font-weight:600;">
+      <span style="font-size:20px;">⭐</span> Topmate
+    </a>
+  </div>
 </body>
 </html>
