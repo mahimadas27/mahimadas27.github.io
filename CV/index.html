@@ -7,30 +7,125 @@
 <link rel="icon" type="image/png" href="https://favicon.io/emoji-favicons/fox/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
   body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 40px 70px;
+    padding: 20px;
     background: linear-gradient(135deg, #ff9ecf, #fbc2eb, #a0e7ff, #89c7ff);
     color: #111;
-    line-height: 1.7;
-    font-size: 20px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.6;
+    font-size: 16px;
     overflow-x: hidden;
+    min-height: 100vh;
   }
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  
+  /* Mobile-first styles */
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
-  html {
-    touch-action: manipulation;
+  
+  /* Sidebar for mobile (top) and desktop (left) */
+  .sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+  }
+  
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contact-link.linkedin {
+    color: #0A66C2;
+    border: 1px solid rgba(10, 102, 194, 0.2);
+  }
+  
+  .contact-link.orcid {
+    color: #A6CE39;
+    border: 1px solid rgba(166, 206, 57, 0.2);
+  }
+  
+  .contact-link.email {
+    color: #333;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+  }
+  
+  .contact-link.github {
+    color: #333;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+  }
+  
+  .contact-link img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .contact-link .emoji {
+    font-size: 18px;
+  }
+  
+  /* Main content */
+  .main-content {
+    padding: 30px 25px;
+    width: 100%;
   }
   
   /* Animated Name Styles */
   .animated-name {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 800;
     margin-bottom: 20px;
     text-align: center;
@@ -59,7 +154,7 @@
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     border: none;
     cursor: pointer;
@@ -67,6 +162,8 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 250px;
   }
   
   .download-btn:hover {
@@ -97,188 +194,375 @@
   
   .btn-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   
-  .contact-line {
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center;
-  }
   .section-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     margin-top: 35px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid rgba(255,255,255,0.6);
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
+    color: #333;
   }
+  
+  .section-title span:first-child {
+    color: #4a4a4a;
+  }
+  
   .entry {
-    margin-top: 18px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
+  
+  .entry:last-child {
+    border-bottom: none;
+  }
+  
   .entry-title {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 17px;
+    color: #222;
+    display: block;
+    margin-bottom: 5px;
   }
+  
   ul {
     margin: 10px 0 0 25px;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  p {
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+  
+  /* Desktop styles (min-width: 768px) */
+  @media (min-width: 768px) {
+    body {
+      padding: 40px 20px;
+      font-size: 18px;
+    }
+    
+    .container {
+      flex-direction: row;
+      min-height: calc(100vh - 80px);
+    }
+    
+    .sidebar {
+      width: 300px;
+      border-bottom: none;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 40px 25px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 30px;
+    }
+    
+    .contact-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .contact-link {
+      width: 100%;
+      max-width: 200px;
+      justify-content: flex-start;
+      padding: 12px 20px;
+    }
+    
+    .main-content {
+      padding: 40px 50px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    
+    .animated-name {
+      font-size: 48px;
+      text-align: left;
+    }
+    
+    .btn-container {
+      text-align: left;
+    }
+    
+    .download-btn {
+      width: auto;
+      margin-left: 0;
+    }
+    
+    .section-title {
+      font-size: 24px;
+    }
+    
+    .entry-title {
+      font-size: 18px;
+    }
+  }
+  
+  /* Large desktop styles (min-width: 1024px) */
+  @media (min-width: 1024px) {
+    .sidebar {
+      width: 350px;
+    }
+    
+    .main-content {
+      padding: 50px 60px;
+    }
+    
+    .animated-name {
+      font-size: 52px;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    body {
+      background: white;
+      padding: 0;
+      font-size: 12pt;
+    }
+    
+    .container {
+      box-shadow: none;
+      border-radius: 0;
+      max-width: 100%;
+    }
+    
+    .sidebar {
+      border-right: 1px solid #ccc;
+      background: white;
+    }
+    
+    .download-btn {
+      display: none;
+    }
+    
+    .animated-name {
+      -webkit-text-fill-color: #333;
+      animation: none;
+    }
+    
+    a {
+      color: #333;
+      text-decoration: none;
+    }
   }
 </style>
 </head>
 <body>
-<div style="position:fixed; left:0; top:0; width:260px; height:100%; background:rgba(255,255,255,0.55); backdrop-filter:blur(6px); padding:30px 20px; box-shadow:2px 0 8px rgba(0,0,0,0.1); display:flex; flex-direction:column; align-items:center;">
-  <img src="https://github.com/mahimadas27/mahimadas27.github.io/blob/main/images/me.jpg?raw=true" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:4px solid #fff; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
-  <div style="margin-top:20px; text-align:center; font-size:16px; line-height:1.4;">
-    <a href="https://www.linkedin.com/in/mahima-das-880876210/" style="display:flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; color:#0A66C2; margin-top:10px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" style="width:22px; height:22px;"> LinkedIn
-    </a>
-    <a href="https://orcid.org/0009-0008-5764-1921" style="display:flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; color:#A6CE39; margin-top:10px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" style="width:22px; height:22px;"> ORCID
-    </a>
-    <a href="mailto:dasmahima12270993@gmail.com" style="display:flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; color:#333; margin-top:10px;">
-      <span style="font-size:22px;">✉️</span> Email
-    </a>
-    <a href="https://mahimadas27.github.io/" style="display:flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; color:#333; margin-top:10px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" style="width:22px; height:22px;"> GitHub
-    </a>
+<div class="container">
+  <!-- Sidebar - Mobile: top, Desktop: left -->
+  <div class="sidebar">
+    <img src="https://github.com/mahimadas27/mahimadas27.github.io/blob/main/images/me.jpg?raw=true" 
+         alt="Mahima Das" 
+         class="profile-img">
+    
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/mahima-das-880876210/" 
+         class="contact-link linkedin" 
+         target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"> LinkedIn
+      </a>
+      
+      <a href="https://orcid.org/0009-0008-5764-1921" 
+         class="contact-link orcid" 
+         target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID"> ORCID
+      </a>
+      
+      <a href="mailto:dasmahima12270993@gmail.com" 
+         class="contact-link email">
+        <span class="emoji">✉️</span> Email
+      </a>
+      
+      <a href="https://mahimadas27.github.io/" 
+         class="contact-link github" 
+         target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"> GitHub
+      </a>
+    </div>
+  </div>
+  
+  <!-- Main Content - Mobile: below sidebar, Desktop: right of sidebar -->
+  <div class="main-content">
+    <!-- Animated Name -->
+    <h1 class="animated-name">Mahima Das</h1>
+    
+    <!-- Download CV Button -->
+    <div class="btn-container">
+      <a href="https://raw.githubusercontent.com/mahimadas27/mahimadas27.github.io/97f705eee33c98c6139d50304f53333c7696bb4d/Mahima_Das_CV_A.pdf" 
+         class="download-btn" 
+         target="_blank"
+         download="Mahima_Das_CV.pdf">
+        Download CV
+      </a>
+    </div>
+    
+    <div class="section-title"><span>S</span>KILLS</div>
+    <ul>
+      <li>Project Management, Teamwork, Effective Communication, Teaching, Leadership</li>
+      <li>Languages: English (Fluent), Hindi (Fluent), Bengali (Native)</li>
+      <li>MS Word, Excel, PowerPoint, Project; SPSS, JAMOVI, AMOS; Beginner in R and Python</li>
+    </ul>
+    
+    <div class="section-title"><span>R</span>ESEARCH <span>I</span>NTERESTS</div>
+    <p>My research focuses on the psychological impacts of childhood trauma, particularly its influence on emotional outcomes, negative behavioural and health outcomes. I employ quantitative research methods with a focus on SPSS, AMOS and R for statistical analysis. Prospective areas of inquiry include substance and illicit drug abuse, moral injury, trauma, coercion and violence, with an emphasis on trauma-informed and culturally sensitive applications. My work seeks to inform both psychological theory and clinical practice, with long-term contributions to research, assessment, and intervention development for marginalized and high-risk populations.</p>
+    
+    <div class="section-title"><span>E</span>DUCATION</div>
+    <div class="entry"><span class="entry-title">University of Sussex</span> — Masters in Research in Psychological Methods (September 2026)</div>
+    <div class="entry"><span class="entry-title">Bengaluru City University, IIPR</span> — MSc Psychology (CGPA 8.98), 3rd Rank (August 2024)</div>
+    <div class="entry"><span class="entry-title">University of Calcutta, Asutosh College</span> — BSc (Hons) Psychology (CGPA 7.865) (August 2022)</div>
+    
+    <div class="section-title"><span>R</span>ESEARCH <span>E</span>XPERIENCE</div>
+    <div class="entry"><span class="entry-title">University of Sussex (Sept 2025 – Present)</span>
+    <ul>
+      <li>Course Representative (Student Union)</li>
+      <li>Active Listening Volunteer (Nightline)</li>
+      <li>Events Officer, Psychology Society</li>
+      <li>Working with Dr. Faith Matcham (THRIVE Lab) on AI/VR/wearable interventions for alcohol use</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">Mahindra University — Research Assistant (Remote) (Jun–Sep 2025)</span>
+    <ul>
+      <li>Worked on Black Swan funded project "Resilience in Structured Hardships."</li>
+      <li>Wrote systematic review on hardship and gratitude</li>
+      <li>Managed 28 participants for 30 days; collected and transcribed interviews</li>
+      <li>Data analysis and manuscript preparation</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">CHI for Trauma and Well-being — Research Assistant (Jun–Aug 2025)</span>
+    <ul><li>Worked on "Illness Burden of Trauma."</li></ul>
+    </div>
+    <div class="entry"><span class="entry-title">Stanford University & Hebrew University — Trauma Group (2024–Present)</span>
+    <ul>
+      <li>Worked on sibling sexual abuse dataset (~3000 cases) and Arabic dyads project</li>
+      <li>Scale development; CFA validation in SPSS AMOS</li>
+      <li>Weekly presentations and grant writing</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">IIPR – Astara Clinic — Research Assistant (May–Jul 2024)</span>
+    <ul>
+      <li>Retrospective child maltreatment prevalence study</li>
+      <li>Data collection, sorting, ethical field practices</li>
+      <li>Manuscript work</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">EMOJAR — Research Assistant (Jul–Nov 2020)</span>
+    <ul><li>Wrote psychology blogs and magazine content</li></ul>
+    </div>
+    
+    <div class="section-title"><span>P</span>ROFESSIONAL <span>E</span>XPERIENCE</div>
+    <div class="entry"><span class="entry-title">Aurora Community Care — Caregiver (Nov 2025 – Present)</span>
+    <ul>
+      <li>Overnight supervision, reassurance, safety monitoring</li>
+      <li>Personal care, mobility support, medication prompts</li>
+      <li>Welfare checks, emergency response, documentation</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">St. Anne's Degree College — Lecturer & Administrative Officer (Sep 2024 – Mar 2025)</span>
+    <ul>
+      <li>Taught Psychometry, Psychotherapy, Theoretical Perspectives, OB</li>
+      <li>SPSS training; supervised scale development and dissertations</li>
+      <li>Trauma-informed pedagogy implementation</li>
+      <li>Organised events and managed departmental newsletter</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">Anugrah Siksha Kendra — Remedial Educator (Feb 2023 – Aug 2024)</span>
+    <ul><li>Remediation for children with learning disabilities; personalised plans</li></ul>
+    </div>
+    <div class="entry"><span class="entry-title">That Happiness Project — Trainee Counsellor (Apr 2024 – Jan 2025)</span>
+    <ul>
+      <li>40+ supervised sessions using CBT and ACT</li>
+      <li>Case formulation and assessment tool usage</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">AIESEC India — Internship Trainee (Aug 2020 – Jan 2021)</span>
+    <ul>
+      <li>Sales Executive (OGT)</li>
+      <li>Customer service and event management (Youth Speak Forum)</li>
+    </ul>
+    </div>
+    
+    <div class="section-title"><span>V</span>OLUNTEERING</div>
+    <div class="entry"><span class="entry-title">UPA Journal — Open Science Officer (Nov 2025 – Present)</span>
+    <ul>
+      <li>Created open science guides</li>
+      <li>Conducted workshops</li>
+      <li>Managed registered report pipeline</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">Sussex Nightline — Active Listening Volunteer (Sep 2025 – Present)</span>
+    <ul>
+      <li>14-hour training; waking night shifts</li>
+    </ul>
+    </div>
+    <div class="entry"><span class="entry-title">Caring Minds — Clinical Intern (Aug–Oct 2022)</span>
+    <ul>
+      <li>Client observation under four clinicians</li>
+      <li>Administered and scored IQ, MBTI, IPDE, DSMD, CAARS, SCARED, BDI, BSDS</li>
+    </ul>
+    </div>
+    
+    <div class="section-title"><span>P</span>RESENTATIONS</div>
+    <ul>
+      <li><strong>Das, M.</strong> (2025). Childhood Trauma & Alexithymia — Psychedelics Conference, NSHM</li>
+      <li><strong>Das, M.</strong>, Unnikrishnan, S., & Sibey, A. (2023). Media Violence & Anxiety — National Conference, Kannur</li>
+      <li><strong>Das, M.</strong> (2021). Gender Security & Pandemic — IIHSG International Conference</li>
+    </ul>
+    
+    <div class="section-title"><span>W</span>ORKSHOPS & <span>T</span>RAININGS</div>
+    <ul><li>Swift Solutions for Technology Addiction-2 — SHUT Clinic, NIMHANS (2024)</li></ul>
+    
+    <div class="section-title"><span>G</span>UEST <span>L</span>ECTURES & <span>P</span>ANELS</div>
+    <ul>
+      <li>Guest Lecturer — St. Anne's: Motivation & Coping Strategies (2024)</li>
+      <li>Panel Moderator — IIPR: Psychology & Oncology (2024)</li>
+    </ul>
   </div>
 </div>
-<div style="margin-left:350px;">
 
-<!-- Animated Name -->
-<h1 class="animated-name">Mahima Das</h1>
-
-<!-- Download CV Button -->
-<div class="btn-container">
-  <a href="https://raw.githubusercontent.com/mahimadas27/mahimadas27.github.io/97f705eee33c98c6139d50304f53333c7696bb4d/Mahima_Das_CV_A.pdf" 
-     class="download-btn" 
-     target="_blank"
-     download="Mahima_Das_CV.pdf">
-    Download CV
-  </a>
-</div>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">S</span>KILLS</span></div>
-<ul>
-  <li>Project Management, Teamwork, Effective Communication, Teaching, Leadership</li>
-  <li>Languages: English (Fluent), Hindi (Fluent), Bengali (Native)</li>
-  <li>MS Word, Excel, PowerPoint, Project; SPSS, JAMOVI, AMOS; Beginner in R and Python</li>
-</ul>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">R</span>ESEARCH <span style="color:#4a4a4a;">I</span>NTERESTS</span></div>
-<p>My research focuses on the psychological impacts of childhood trauma, particularly its influence on emotional outcomes, negative behavioural and health outcomes. I employ quantitative research methods with a focus on SPSS, AMOS and R for statistical analysis. Prospective areas of inquiry include substance and illicit drug abuse, moral injury, trauma, coercion and violence, with an emphasis on trauma-informed and culturally sensitive applications. My work seeks to inform both psychological theory and clinical practice, with long-term contributions to research, assessment, and intervention development for marginalized and high-risk populations.</p>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">E</span>DUCATION</span></div>
-<div class="entry"><span class="entry-title">University of Sussex</span> — Masters in Research in Psychological Methods (September 2026)</div>
-<div class="entry"><span class="entry-title">Bengaluru City University, IIPR</span> — MSc Psychology (CGPA 8.98), 3rd Rank (August 2024)</div>
-<div class="entry"><span class="entry-title">University of Calcutta, Asutosh College</span> — BSc (Hons) Psychology (CGPA 7.865) (August 2022)</div>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">R</span>ESEARCH <span style="color:#4a4a4a;">E</span>XPERIENCE</span></div>
-<div class="entry"><span class="entry-title">University of Sussex (Sept 2025 – Present)</span>
-<ul>
-  <li>Course Representative (Student Union)</li>
-  <li>Active Listening Volunteer (Nightline)</li>
-  <li>Events Officer, Psychology Society</li>
-  <li>Working with Dr. Faith Matcham (THRIVE Lab) on AI/VR/wearable interventions for alcohol use</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">Mahindra University — Research Assistant (Remote) (Jun–Sep 2025)</span>
-<ul>
-  <li>Worked on Black Swan funded project "Resilience in Structured Hardships."</li>
-  <li>Wrote systematic review on hardship and gratitude</li>
-  <li>Managed 28 participants for 30 days; collected and transcribed interviews</li>
-  <li>Data analysis and manuscript preparation</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">CHI for Trauma and Well-being — Research Assistant (Jun–Aug 2025)</span>
-<ul><li>Worked on "Illness Burden of Trauma."</li></ul>
-</div>
-<div class="entry"><span class="entry-title">Stanford University & Hebrew University — Trauma Group (2024–Present)</span>
-<ul>
-  <li>Worked on sibling sexual abuse dataset (~3000 cases) and Arabic dyads project</li>
-  <li>Scale development; CFA validation in SPSS AMOS</li>
-  <li>Weekly presentations and grant writing</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">IIPR – Astara Clinic — Research Assistant (May–Jul 2024)</span>
-<ul>
-  <li>Retrospective child maltreatment prevalence study</li>
-  <li>Data collection, sorting, ethical field practices</li>
-  <li>Manuscript work</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">EMOJAR — Research Assistant (Jul–Nov 2020)</span>
-<ul><li>Wrote psychology blogs and magazine content</li></ul>
-</div>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">P</span>ROFESSIONAL <span style="color:#4a4a4a;">E</span>XPERIENCE</span></div>
-<div class="entry"><span class="entry-title">Aurora Community Care — Caregiver (Nov 2025 – Present)</span>
-<ul>
-  <li>Overnight supervision, reassurance, safety monitoring</li>
-  <li>Personal care, mobility support, medication prompts</li>
-  <li>Welfare checks, emergency response, documentation</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">St. Anne's Degree College — Lecturer & Administrative Officer (Sep 2024 – Mar 2025)</span>
-<ul>
-  <li>Taught Psychometry, Psychotherapy, Theoretical Perspectives, OB</li>
-  <li>SPSS training; supervised scale development and dissertations</li>
-  <li>Trauma-informed pedagogy implementation</li>
-  <li>Organised events and managed departmental newsletter</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">Anugrah Siksha Kendra — Remedial Educator (Feb 2023 – Aug 2024)</span>
-<ul><li>Remediation for children with learning disabilities; personalised plans</li></ul>
-</div>
-<div class="entry"><span class="entry-title">That Happiness Project — Trainee Counsellor (Apr 2024 – Jan 2025)</span>
-<ul>
-  <li>40+ supervised sessions using CBT and ACT</li>
-  <li>Case formulation and assessment tool usage</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">AIESEC India — Internship Trainee (Aug 2020 – Jan 2021)</span>
-<ul>
-  <li>Sales Executive (OGT)</li>
-  <li>Customer service and event management (Youth Speak Forum)</li>
-</ul>
-</div>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">V</span>OLUNTEERING</span></div>
-<div class="entry"><span class="entry-title">UPA Journal — Open Science Officer (Nov 2025 – Present)</span>
-<ul>
-  <li>Created open science guides</li>
-  <li>Conducted workshops</li>
-  <li>Managed registered report pipeline</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">Sussex Nightline — Active Listening Volunteer (Sep 2025 – Present)</span>
-<ul>
-  <li>14-hour training; waking night shifts</li>
-</ul>
-</div>
-<div class="entry"><span class="entry-title">Caring Minds — Clinical Intern (Aug–Oct 2022)</span>
-<ul>
-  <li>Client observation under four clinicians</li>
-  <li>Administered and scored IQ, MBTI, IPDE, DSMD, CAARS, SCARED, BDI, BSDS</li>
-</ul>
-</div>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">P</span>RESENTATIONS</span></div>
-<ul>
-  <li><strong>Das, M.</strong> (2025). Childhood Trauma & Alexithymia — Psychedelics Conference, NSHM</li>
-  <li><strong>Das, M.</strong>, Unnikrishnan, S., & Sibey, A. (2023). Media Violence & Anxiety — National Conference, Kannur</li>
-  <li><strong>Das, M.</strong> (2021). Gender Security & Pandemic — IIHSG International Conference</li>
-</ul>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">W</span>ORKSHOPS & <span style="color:#4a4a4a;">T</span>RAININGS</span></div>
-<ul><li>Swift Solutions for Technology Addiction-2 — SHUT Clinic, NIMHANS (2024)</li></ul>
-
-<div class="section-title"><span style="color:#6f6f6f; font-weight:900;"><span style="color:#4a4a4a;">G</span>UEST <span style="color:#4a4a4a;">L</span>ECTURES & <span style="color:#4a4a4a;">P</span>ANELS</span></div>
-<ul>
-  <li>Guest Lecturer — St. Anne's: Motivation & Coping Strategies (2024)</li>
-  <li>Panel Moderator — IIPR: Psychology & Oncology (2024)</li>
-</ul>
-
-</div>
+<script>
+  // Add smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 20,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Make external links open in new tab
+  document.querySelectorAll('a').forEach(link => {
+    if (link.hostname !== window.location.hostname) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+</script>
 </body>
 </html>
